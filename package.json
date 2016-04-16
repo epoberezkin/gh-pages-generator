@@ -1,0 +1,32 @@
+{
+  "name": "gh-pages-generator",
+  "version": "0.1.0",
+  "description": "Multi-page site generator converting markdown files to github pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "gh-pages-generator": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epoberezkin/gh-pages-generator.git"
+  },
+  "keywords": [
+    "gh-pages",
+    "site-generator",
+    "github",
+    "pages"
+  ],
+  "author": "Evgeny Poberezkin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/epoberezkin/gh-pages-generator/issues"
+  },
+  "homepage": "https://github.com/epoberezkin/gh-pages-generator#readme",
+  "dependencies": {
+    "ajv": "^4.0.0",
+    "dot": "^1.0.3"
+  }
+}

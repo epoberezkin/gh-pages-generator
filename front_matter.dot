@@ -1,0 +1,5 @@
+---
+{{? it.config.navigation }}page_name: {{= it.page.page }}
+{{?}}title: {{= it.page.title }}
+{{? it.config.layout }}layout: {{= it.config.layout }}
+{{?}}---

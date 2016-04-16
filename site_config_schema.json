@@ -1,0 +1,68 @@
+{
+  "id": "site_config_schema.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Site configuration file",
+  "type": "object",
+  "required": [ "repository", "pages" ],
+  "additionalProperties": false,
+  "properties": {
+    "repository": {
+      "type": "string",
+      "format": "uri"
+    },
+    "folders": {
+      "type": "object",
+      "default": {},
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "type": "string",
+          "default": "_source"
+        },
+        "target": {
+          "type": "string",
+          "default": "."
+        },
+        "site": {
+          "$ref": "#/definitions/pathSegment",
+          "default": ""
+        }
+      }
+    },
+    "layout": { "$ref": "#/definitions/pathSegment" },
+    "navigation": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [ "page", "linkText" ],
+        "additionalProperties": false,
+        "properties": {
+          "page": { "$ref": "#/definitions/pathSegment" },
+          "linkText": { "type": "string" },
+          "home": { "type": "boolean" }
+        }
+      }
+    },
+    "pages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [ "file", "page", "title" ],
+        "additionalProperties": false,
+        "properties": {
+          "file": { "type": "string" },
+          "page": { "$ref": "#/definitions/pathSegment" },
+          "title": { "type": "string" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "pathSegment": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_\\-]*$"
+    }
+  }
+}
