@@ -23,6 +23,10 @@
           "type": "string",
           "default": "."
         },
+        "includes": {
+          "type": "string",
+          "default": "_includes"
+        },
         "site": {
           "$ref": "#/definitions/pathSegment",
           "default": ""

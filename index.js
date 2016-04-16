@@ -17,16 +17,20 @@ if (!valid) {
   process.exit(1);
 }
 
-var frontMatter, repoPattern;
+var frontMatter, navTemplate, repoPattern;
 
 prepareTemplates();
 config.pages.forEach(createPage);
+if (config.navigation) generateNavigation();
 
 
 function prepareTemplates() {
   doT.templateSettings.strip = false;
   frontMatter = fs.readFileSync(path.join(__dirname, 'front_matter.dot'));
   frontMatter = doT.compile(frontMatter);
+
+  navTemplate = fs.readFileSync(path.join(__dirname, 'navigation.dot'));
+  navTemplate = doT.compile(navTemplate);
 }
 
 
@@ -35,6 +39,14 @@ function createPage(page) {
   replaceLinks(page);
   addFrontMatter(page);
   writePage(page);
+}
+
+
+function generateNavigation() {
+  try { fs.mkdirSync(config.folders.includes); } catch (e) {}
+  var navHtml = navTemplate({ navigation: config.navigation });
+  var navPath = path.join(config.folders.includes, 'nav.html');
+  fs.writeFileSync(navPath, navHtml);
 }
 
 
