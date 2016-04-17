@@ -4,7 +4,7 @@
     {% if page.page_name == '{{=nav.page}}' %}
       <span class="current_page">{{=nav.linkText}}</span>
     {% else %}
-      <a href="/ajv{{? !nav.home }}/{{=nav.page}}.html{{?}}" title="{{=nav.linkText}}">{{=nav.linkText}}</a>
+      <a href="/{{?it.site}}{{=it.site}}/{{?}}{{?!nav.home}}{{=nav.page}}.html{{?}}" title="{{=nav.linkText}}">{{=nav.linkText}}</a>
     {% endif %}
   </li>
 {{~}}

@@ -44,7 +44,7 @@ function createPage(page) {
 
 function generateNavigation() {
   try { fs.mkdirSync(config.folders.includes); } catch (e) {}
-  var navHtml = navTemplate({ navigation: config.navigation });
+  var navHtml = navTemplate({ navigation: config.navigation, site: config.folders.site });
   var navPath = path.join(config.folders.includes, 'nav.html');
   fs.writeFileSync(navPath, navHtml);
 }
