@@ -59,7 +59,7 @@ function readFile(page) {
 var rootRegex;
 function replaceLinks(page) {
   config.pages.forEach(replaceLinksToPage);
-  if (config.folders.site) replaceLinksToRoot();
+  replaceLinksToRoot();
 
   function replaceLinksToPage(toPage) {
     if (!toPage.linkRegex) {
